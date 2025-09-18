@@ -1,3 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+
+@theme {
+  /* Custom Font Families */
+  --font-sans: '"Roboto"', 'sans-serif';
+  --font-heading: '"Montserrat"', 'sans-serif';
+
+  /* Custom Color Palette */
+  --color-primary: #0A75A2;
+  --color-primary-light: #E6F2F7;
+  --color-primary-dark: #085D7F;
+
+  --color-secondary: #FF6B6B;
+  --color-secondary-light: #FFE5E5;
+  --color-secondary-dark: #CC5656;
+
+  --color-accent: #FFD166;
+
+  /* Custom Border Radius */
+  --rounded-xl: 1rem;
+}
+
 

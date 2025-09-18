@@ -1,7 +1,7 @@
 export const environment = {
     production: false,
     epicClientId: '1ad3a1a0-0d18-4ea4-9b0f-36b7f85f2f4a',
-    epicRedirectUri: 'https://f7ab23fdc515.ngrok-free.app/redirect',
+    epicRedirectUri: 'https://b4290512fc22.ngrok-free.app/redirect',
     epicFhirBaseUrl: 'https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4',
     epicAuthUrl: 'https://fhir.epic.com/interconnect-fhir-oauth/oauth2/authorize',
     epicTokenUrl: 'https://fhir.epic.com/interconnect-fhir-oauth/oauth2/token',

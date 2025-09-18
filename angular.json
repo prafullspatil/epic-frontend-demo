@@ -73,10 +73,18 @@
               "buildTarget": "epic-frontend-demo:build:production"
             },
             "development": {
-              "buildTarget": "epic-frontend-demo:build:development"
+              "buildTarget": "epic-frontend-demo:build:development",
+              "allowedHosts": [
+                "4882817dfab7.ngrok-free.app"
+              ]
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "allowedHosts": [
+              "b93373521b8b.ngrok-free.app"
+            ]
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n"
