@@ -1,27 +1,43 @@
-<div class="bg-neutral-100 min-h-screen flex flex-col items-center justify-center p-4 font-sans">
-    <div class="max-w-md w-full bg-white rounded-xl shadow-lg p-8 text-center border border-neutral-200">
-      <header class="mb-6">
-        <!-- App Logo/Icon -->
-        <div class="inline-block bg-primary-light text-primary rounded-full p-3 mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c0 3.517-1.009 6.789-2.756 9.362m-3.64-3.64A9.96 9.96 0 012.25 12c0-1.863.506-3.6 1.354-5.002m17.092 5.002a9.96 9.96 0 01-2.25 5.718m3.64-3.64A9.96 9.96 0 0021.75 12c0-1.863-.506-3.6-1.354-5.002m-17.092 5.002a9.963 9.963 0 012.25-5.718m12.584 0A9.963 9.963 0 0012 6.282" />
-          </svg>
-        </div>
-        <h1 class="text-2xl font-bold text-neutral-800 font-heading">Connect Your Health Record</h1>
-        <p class="text-neutral-600 mt-2">Securely access your health information from your provider.</p>
-      </header>
-  
-      <main class="mb-6">
-        <p class="text-neutral-700 mb-6 text-sm">
-          To continue, please click the button below to log in with your patient portal account and authorize this application to access your health data. Your information is kept private and secure.
-        </p>
-        <button (click)="authorize()" class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
-          Authorize with Epic
-        </button>
-      </main>
-  
-      <footer class="text-neutral-500 text-xs">
-        <p>Your Health App</p>
-      </footer>
-    </div>
+<div
+  class="bg-neutral-100 min-h-screen flex flex-col items-center justify-center p-4 font-sans"
+>
+  <div
+    class="max-w-md w-full bg-white rounded-xl shadow-lg p-8 text-center border border-neutral-200"
+  >
+    <header class="mb-6">
+      <!-- App Logo/Icon -->
+      <div
+        class="inline-block bg-primary-light text-primary rounded-full p-3 mb-4"
+      >
+      <svg id="logo"
+    xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c0 3.517-1.009 6.789-2.756 9.362m-3.64-3.64A9.96 9.96 0 012.25 12c0-1.863.506-3.6 1.354-5.002m17.092 5.002a9.96 9.96 0 01-2.25 5.718m3.64-3.64A9.96 9.96 0 0021.75 12c0-1.863-.506-3.6-1.354-5.002m-17.092 5.002a9.963 9.963 0 012.25-5.718m12.584 0A9.963 9.963 0 0012 6.282" />
+</svg>
+      </div>
+      <h1>
+        Connect Your Health Record
+      </h1>
+      <p class="text-neutral-600 mt-2">
+        Securely access your health information from your provider.
+      </p>
+    </header>
+
+    <main class="mb-6">
+      <p class="text-neutral-700 mb-6 text-sm">
+        To continue, please click the button below to log in with your patient
+        portal account and authorize this application to access your health
+        data. Your information is kept private and secure.
+      </p>
+      <button
+        (click)="authorize()"
+        class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+      >
+        Authorize with Epic
+      </button>
+    </main>
+
+    <footer class="text-neutral-500 text-xs">
+      <p>Your Health App</p>
+    </footer>
   </div>
+</div>

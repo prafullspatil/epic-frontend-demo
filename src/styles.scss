@@ -2,8 +2,8 @@
 
 @theme {
   /* Custom Font Families */
-  --font-sans: '"Roboto"', 'sans-serif';
-  --font-heading: '"Montserrat"', 'sans-serif';
+  --font-sans: '"Inter"', 'sans-serif';
+  --font-heading: '"Inter"', 'sans-serif';
 
   /* Custom Color Palette */
   --color-primary: #0A75A2;
@@ -20,4 +20,19 @@
   --rounded-xl: 1rem;
 }
 
+/* Global Typography Styles */
+body {
+  @apply font-sans text-base text-neutral-700;
+}
 
+h1 {
+  @apply font-heading text-3xl font-bold text-neutral-800;
+}
+
+h2 {
+  @apply font-heading text-2xl font-bold text-neutral-800;
+}
+
+h3 {
+  @apply font-heading text-xl font-semibold text-neutral-800;
+}

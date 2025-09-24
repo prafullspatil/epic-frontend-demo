@@ -1,0 +1,26 @@
+/* You can add component-specific styles here. */
+/* For this component, we'll rely mostly on Tailwind CSS classes */
+/* but we can add overrides or custom styles if needed. */
+
+/* Example of a custom style if you wanted to override something */
+:host {
+  display: block;
+  font-family: 'Inter', sans-serif; /* Assuming Inter is the project font */
+}
+
+.font-bold {
+  font-weight: 600; /* Semibold for a slightly softer bold look if needed */
+}
+
+/* Custom color usage if needed */
+.text-teal-500 {
+  color: #14B8A6;
+}
+
+.bg-teal-500 {
+  background-color: #14B8A6;
+}
+
+.hover\:bg-teal-600:hover {
+    background-color: #0F766E;
+}
