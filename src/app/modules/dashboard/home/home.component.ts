@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { forkJoin, map } from 'rxjs';
 import { PatientService } from '../../../core/services/patient.service';
 import { FHIRCondition, FHIRObservation, FHIRPatient } from '../../../core/models/fhir-patient.model';
+import { SidebarComponent } from '../../../shared/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SidebarComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
