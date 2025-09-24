@@ -1,8 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PatientService } from '../../core/services/patient.service';
-import { FHIRPatient, FHIRObservation, FHIRCondition } from '../../core/models/fhir-patient.model';
 import { forkJoin, map } from 'rxjs';
+import { PatientService } from '../../../core/services/patient.service';
+import { FHIRCondition, FHIRObservation, FHIRPatient } from '../../../core/models/fhir-patient.model';
 
 @Component({
   selector: 'app-home',
