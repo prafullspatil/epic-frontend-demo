@@ -1,0 +1,35 @@
+<section class="border border-light bg-white rounded-lg max-w-[700px] p-8">
+  <div #modalHeader class="text-lg font-semibold border-b pb-4">
+    <h6>Patient Summary</h6>
+  </div>
+  <div #modalBody class="mt-6 max-h-[60vh] overflow-y-auto space-y-4">
+    <div *ngIf="isLoading" class="flex flex-col items-center justify-center h-48">
+      <div class="typing-indicator">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <p class="mt-4 text-gray-500">Generating summary...</p>
+    </div>
+
+    <div *ngIf="!isLoading">
+      <div *ngFor="let item of parsedSummary" [ngSwitch]="item.type">
+        <h3 *ngSwitchCase="'title'" class="text-xl font-bold mt-4 mb-2" [innerHTML]="item.content"></h3>
+        <p *ngSwitchCase="'paragraph'" class="text-base" [innerHTML]="item.content"></p>
+        <div *ngSwitchCase="'item'" class="flex items-start">
+          <span class="mr-2">•</span>
+          <p class="flex-1" [innerHTML]="item.content"></p>
+        </div>
+        <div *ngSwitchCase="'subitem'" class="flex items-start ml-6">
+          <span class="mr-2">-</span>
+          <p class="flex-1" [innerHTML]="item.content"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div #modalFooter class="mt-8 flex gap-3 justify-end w-full mx-auto border-t pt-4">
+    <button (click)="closeModal()" class="btn bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300">
+      Close
+    </button>
+  </div>
+</section>

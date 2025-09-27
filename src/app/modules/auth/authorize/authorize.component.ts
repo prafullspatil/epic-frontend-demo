@@ -73,7 +73,7 @@ export class AuthorizeComponent implements OnInit, OnDestroy {
 
   confirmPatient() {
     if (this.patient && this.patient.id) {
-      this.router.navigate(['/dashboard/home', { patientId: this.patient.id }]);
+      this.router.navigate(['/dashboard'], { state: { patientId: this.patient.id } });
     }
   }
 

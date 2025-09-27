@@ -1,72 +1,112 @@
-<app-sidebar></app-sidebar>
-<div class="p-8 bg-gray-50 min-h-screen">
-  <header class="flex justify-between items-center mb-8">
-    <div>
-      <a href="#" class="text-gray-500 hover:text-gray-700">&larr; Back to dashboard</a>
-      <h1 class="mt-2">Current Appointment</h1>
+<app-sidebar>
+  <div class="p-8 bg-gray-50">
+    <header class="flex justify-between items-center mb-8">
+      <div>
+        <!-- <a href="#" class="text-gray-500 hover:text-gray-700"
+          >&larr; Back to dashboard</a
+        > -->
+        <h1 class="mt-2">Patient Dashboard</h1>
+      </div>
+      <div *ngIf="patient" class="flex items-center">
+        <span class="mr-4 text-gray-600"
+          >{{ patient.name[0].given[0] }}
+          {{ patient.name[0].family }} &or;</span
+        >
+        <img
+          [src]="patient.photo?.[0]?.url || 'https://i.pravatar.cc/150?u=' + patient.id"
+          [alt]="patient.name[0].family"
+          class="w-10 h-10 rounded-full"
+        />
+      </div>
+    </header>
+
+    <div
+      *ngIf="isLoading; else content"
+      class="flex justify-center items-center min-h-screen"
+    >
+      <p class="text-xl text-gray-500">Loading patient data...</p>
     </div>
-    <div *ngIf="patient" class="flex items-center">
-      <span class="mr-4 text-gray-600">{{ patient.name[0].given[0] }} {{ patient.name[0].family }} &or;</span>
-      <img [src]="patient.photo?.[0]?.url || 'https://i.pravatar.cc/150?u=' + patient.id" [alt]="patient.name[0].family" class="w-10 h-10 rounded-full">
-    </div>
-  </header>
 
-  <div *ngIf="isLoading; else content" class="flex justify-center items-center min-h-screen">
-    <p class="text-xl text-gray-500">Loading patient data...</p>
-  </div>
+    <ng-template #content>
+      <main *ngIf="patient" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Left Column -->
+        <div class="lg:col-span-1 space-y-8">
+          <!-- Patient Card -->
+          <div class="bg-white p-6 rounded-lg shadow-md text-center">
+            <img
+              [src]="patient.photo?.[0]?.url || 'https://i.pravatar.cc/150?u=' + patient.id"
+              [alt]="patient.name[0].family"
+              class="w-24 h-24 rounded-full mx-auto mb-4"
+            />
+            <h2>{{ patient.name[0].given[0] }} {{ patient.name[0].family }}</h2>
+            <p class="text-gray-600">Age: {{ getAge(patient.birthDate) }}</p>
+            <button (click)="openSummaryModel()"
+              class="mt-4 bg-teal-500 text-white px-6 py-2 rounded-lg hover:bg-teal-600"
+            >
+              Summarize
+            </button>
+          </div>
 
-  <ng-template #content>
-    <main *ngIf="patient" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-      <!-- Left Column -->
-      <div class="lg:col-span-1 space-y-8">
-        <!-- Patient Card -->
-        <div class="bg-white p-6 rounded-lg shadow-md text-center">
-          <img [src]="patient.photo?.[0]?.url || 'https://i.pravatar.cc/150?u=' + patient.id" [alt]="patient.name[0].family" class="w-24 h-24 rounded-full mx-auto mb-4">
-          <h2>{{ patient.name[0].given[0] }} {{ patient.name[0].family }}</h2>
-          <p class="text-gray-600">Age: {{ getAge(patient.birthDate) }}</p>
-          <button class="mt-4 bg-teal-500 text-white px-6 py-2 rounded-lg hover:bg-teal-600">Update</button>
-        </div>
-
-        <!-- Information Card -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="mb-4">Information:</h3>
-          <div class="space-y-3 text-gray-700">
-            <div *ngFor="let key of objectKeys(patientInfo)" class="flex justify-between">
-              <span class="font-semibold text-gray-600">{{ key | titlecase }}:</span>
-              <span>{{ patientInfo[key] }}</span>
+          <!-- Information Card -->
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="mb-4">Information:</h3>
+            <div class="space-y-3 text-gray-700">
+              <div
+                *ngFor="let key of objectKeys(patientInfo)"
+                class="flex justify-between"
+              >
+                <span class="font-semibold text-gray-600"
+                  >{{ key | titlecase }}:</span
+                >
+                <span>{{ patientInfo[key] }}</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Right Column -->
-      <div class="lg:col-span-2 space-y-8">
-        <!-- Vitals -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div *ngFor="let vital of observations" class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
-            <div class="text-3xl mb-2">{{ getVitalIcon(vital.code.text) }}</div>
-            <p class="text-gray-500">{{ vital.code.text }}</p>
-            <p class="text-2xl font-bold text-gray-800">{{ vital.valueQuantity.value }}{{ vital.valueQuantity.unit }}</p>
+        <!-- Right Column -->
+        <div class="lg:col-span-2 space-y-8">
+          <!-- Vitals -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div
+              *ngFor="let vital of observations"
+              class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center"
+            >
+              <div class="text-3xl mb-2">
+                {{ getVitalIcon(vital.code?.text) }}
+              </div>
+              <p class="text-gray-500">{{ vital.code?.text }}</p>
+              <p class="text-2xl font-bold text-gray-800">
+                {{ vital.valueQuantity.value }}{{ vital.valueQuantity.unit }}
+              </p>
+            </div>
           </div>
-        </div>
 
-        <!-- Conditions -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="mb-4">Conditions</h3>
-          <div class="space-y-4">
-            <div *ngFor="let condition of conditions" class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-              <div class="flex items-center">
-                <div class="text-2xl mr-4">&#x1F9A0;</div> <!-- Microbe emoji for conditions -->
-                <div>
-                  <p class="font-semibold text-gray-800">{{ condition.code.text }}</p>
-                  <p class="text-sm text-gray-500">{{ condition.onsetDateTime | date:'mediumDate' }}</p>
+          <!-- Conditions -->
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="mb-4">Conditions</h3>
+            <div class="space-y-4">
+              <div
+                *ngFor="let condition of conditions"
+                class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+              >
+                <div class="flex items-center">
+                  <div class="text-2xl mr-4">&#x1F9A0;</div>
+                  <!-- Microbe emoji for conditions -->
+                  <div>
+                    <p class="font-semibold text-gray-800">
+                      {{ condition.code?.text }}
+                    </p>
+                    <p class="text-sm text-gray-500">
+                      {{ condition.onsetDateTime | date : "mediumDate" }}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </main>
-  </ng-template>
-</div>
-
+      </main>
+    </ng-template>
+  </div>
+</app-sidebar>

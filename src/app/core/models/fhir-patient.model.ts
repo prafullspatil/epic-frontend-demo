@@ -37,7 +37,7 @@ export interface FHIRObservation {
       display: string;
     }[];
   }[];
-  code: {
+  code?: {
     text: string;
   };
   subject: {
@@ -67,7 +67,7 @@ export interface FHIRCondition {
       display: string;
     }[];
   }[];
-  code: {
+  code?: {
     text: string;
   };
   subject: {
