@@ -27,14 +27,14 @@ export class HomeComponent implements OnInit {
   private readonly router: Router = inject(Router);
 
   ngOnInit(): void {
-    const patientId = history.state.patientId;
+    const patientId = history?.state?.patientId;
     if (patientId) {
       this.isLoading = true;
       this.loadAllPatientData(patientId).subscribe(data => {
         if (data) {
-          this.patient = data.patientResource;
-          this.observations = data.observationResources;
-          this.conditions = data.conditionResources;
+          this.patient = data?.patientResource;
+          this.observations = data?.observationResources;
+          this.conditions = data?.conditionResources;
           if (this.patient) {
             this.patientInfo = this.createPatientInfo(this.patient);
           }
@@ -57,8 +57,8 @@ export class HomeComponent implements OnInit {
       map(({ patient, observations, conditions }) => {
         return {
           patientResource: patient,
-          observationResources: observations.entry?.map(e => e.resource) ?? [],
-          conditionResources: conditions.entry?.map(e => e.resource) ?? [],
+          observationResources: observations.entry?.map(e => e?.resource) ?? [],
+          conditionResources: conditions.entry?.map(e => e?.resource) ?? [],
         };
       })
     );

@@ -77,7 +77,7 @@
               </div>
               <p class="text-gray-500">{{ vital.code?.text }}</p>
               <p class="text-2xl font-bold text-gray-800">
-                {{ vital.valueQuantity.value }}{{ vital.valueQuantity.unit }}
+                {{ vital?.valueQuantity?.value }}{{ vital?.valueQuantity?.unit }}
               </p>
             </div>
           </div>
@@ -91,7 +91,7 @@
                 class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
               >
                 <div class="flex items-center">
-                  <div class="text-2xl mr-4">&#x1F9A0;</div>
+                  <div class="text-2xl mr-4">&bull;&nbsp;</div>
                   <!-- Microbe emoji for conditions -->
                   <div>
                     <p class="font-semibold text-gray-800">
