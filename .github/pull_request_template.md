@@ -1,110 +1,50 @@
-<!--
-Hey there, awesome developer! 🚀
+# 🔗 Shortcut Linked Stories / Tasks / Tickets
 
-Thanks for contributing! To make the review process smooth and fun, please fill out this template.
-The more details you provide, the faster we can merge your amazing work!
--->
-
-# 🎯 Pull Request: [Your PR Title Here]
-
----
-
-## 🎟️ Corresponding Ticket(s)
-
+<!-- Replace or check off the relevant ticket IDs -->
 <!--
 Link the ticket(s) this PR addresses.
 Use keywords like `Fixes #123` or `Resolves #456` to automatically close the corresponding issue.
 -->
 
-- [ ] **TICKET-ID:** A brief description of the ticket.
+- [ ] **Story-ID:** A brief description of the ticket.
 
 ---
 
-## 📜 Description
+## ✨ Summary of Changes
 
-<!--
-Provide a clear and concise description of the changes.
-What is the "why" behind this PR? What problem does it solve?
--->
-
-...
+<!-- A short and clear explanation of the changes in this PR -->
+- ✅ Fixed frontend bugs and UI glitches
 
 ---
 
-## ✨ Changes Made
+## 🧪 Unit Test Report
 
-<!--
-Describe the technical changes you made.
-- What files were changed?
-- What new functions/classes were added?
-- Any new dependencies?
--->
+<!-- Add screenshots or logs of test results here -->
+📷 **Test Results Screenshot:**  
 
-- ...
-- ...
+<!-- ![Unit Test Results](UPLOAD_SCREENSHOT_OR_PASTE_LINK_HERE) -->
 
 ---
 
-## 🧪 How to Test
+## 🔍 Manual Testing Checklist
 
-<!--
-Provide clear steps for the reviewer to test your changes.
-1. Go to page X
-2. Click on button Y
-3. Expect to see Z
--->
-
-**Automated Tests:**
-
-- [ ] All unit tests pass.
-- [ ] All e2e tests pass.
-
-**Manual Testing Steps:**
-
-1. ...
-2. ...
-3. ...
+Please confirm the following were verified:
+- [ ] ✅ Responsive layout verified on mobile and desktop  
+- [ ] ✅ All test cases executed and passed successfully  
+- [ ] ✅ Application builds successfully without any errors  
+- [ ] ✅ Application serves and runs without issues  
+- [ ] ✅ Code committed successfully — no ESLint or pre-commit hook failures  
+- [ ] ✅ Verified all required changes for this story are included and functional  
 
 ---
 
-## 📸 Screenshots / Recordings
+## 💬 Notes for Reviewers (Optional)
 
-<!--
-If your changes affect the UI, please provide before and after screenshots or a screen recording.
-This helps reviewers quickly understand the visual changes.
--->
-
-**Before:**
-
-[Drag and drop image here]
-
-**After:**
-
-[Drag and drop image here]
+<!-- Mention blockers, upcoming changes, or things to watch out for -->
+<!-- - -->
 
 ---
 
-## ✅ PR Checklist
+## 📸 UI Screenshots (if applicable)
 
-<!--
-Please go through this checklist before submitting your PR.
--->
-
-- [ ] My code follows the project's style guidelines.
-- [ ] I have performed a self-review of my own code.
-- [ ] I have commented my code, particularly in hard-to-understand areas.
-- [ ] I have made corresponding changes to the documentation.
-- [ ] My changes generate no new warnings.
-- [ ] I have added tests that prove my fix is effective or that my feature works.
-- [ ] New and existing unit tests pass locally with my changes.
-- [ ] Any dependent changes have been merged and published in downstream modules.
-
----
-
-## 🤯 GIF of the Day (Optional)
-
-<!--
-Share a GIF that represents your feelings about this PR. Because why not?
--->
-
-[Add a GIF here]
+<!-- Add before/after UI images or GIFs -->
