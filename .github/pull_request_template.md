@@ -1,56 +1,110 @@
-## 🔗 Linked Tasks / Tickets
+<!--
+Hey there, awesome developer! 🚀
 
-<!-- Replace or check off the relevant ticket IDs -->
-- [ ] 106201: 🛠️ Fix column header on State License table  
-- [ ] 105253: 🖥️ UI issue in SL Renewal flow  
-- [ ] 106719: 📝 Update text in LOQ Reapply Flow  
-- [ ] 106721: 📝 Update text in Renewal Flow  
-- [ ] 106731: 📱 Fix phone number validation in Delegate Creation  
-- [ ] 105529: 📱 Improve mobile responsiveness  
-- [ ] 105558: 🔽 Enhance dropdown in Operations Dashboard  
+Thanks for contributing! To make the review process smooth and fun, please fill out this template.
+The more details you provide, the faster we can merge your amazing work!
+-->
+
+# 🎯 Pull Request: [Your PR Title Here]
 
 ---
 
-## ✨ Summary of Changes
+## 🎟️ Corresponding Ticket(s)
 
-<!-- A short and clear explanation of the changes in this PR -->
-- ✅ Fixed frontend bugs and UI glitches
-- 🧑‍💻 Improved mobile responsiveness across modules
-- 🔤 Updated UI text content in LOQ and Renewal flows
-- ☑️ Enhanced dropdown behavior for better UX
-- 📞 Resolved validation mismatch on phone number field
+<!--
+Link the ticket(s) this PR addresses.
+Use keywords like `Fixes #123` or `Resolves #456` to automatically close the corresponding issue.
+-->
 
----
-
-## 🧪 Unit Test Report
-
-<!-- Add screenshots or logs of test results here -->
-📷 **Test Results Screenshot:**  
-![Unit Test Results](UPLOAD_SCREENSHOT_OR_PASTE_LINK_HERE)
+- [ ] **TICKET-ID:** A brief description of the ticket.
 
 ---
 
-## 🔍 Manual Testing Checklist
+## 📜 Description
 
-Please confirm the following were verified:
+<!--
+Provide a clear and concise description of the changes.
+What is the "why" behind this PR? What problem does it solve?
+-->
 
-- [ ] Responsive layout verified on mobile and desktop
-- [ ] Dropdown behavior works as expected
-- [ ] All text content appears correctly
-- [ ] Phone validation behaves consistently
-- [ ] No regression in related modules
-
----
-
-## 💬 Notes for Reviewers (Optional)
-
-<!-- Mention blockers, upcoming changes, or things to watch out for -->
-- ℹ️ Minor UI tweaks pending from design review (will follow in a separate PR)
-- 🔗 No dependency on backend changes for this update
-- ⚠️ Please test on Firefox if time permits (found some minor layout shifts)
+...
 
 ---
 
-## 📸 UI Screenshots (if applicable)
+## ✨ Changes Made
 
-<!-- Add before/after UI images or GIFs -->
+<!--
+Describe the technical changes you made.
+- What files were changed?
+- What new functions/classes were added?
+- Any new dependencies?
+-->
+
+- ...
+- ...
+
+---
+
+## 🧪 How to Test
+
+<!--
+Provide clear steps for the reviewer to test your changes.
+1. Go to page X
+2. Click on button Y
+3. Expect to see Z
+-->
+
+**Automated Tests:**
+
+- [ ] All unit tests pass.
+- [ ] All e2e tests pass.
+
+**Manual Testing Steps:**
+
+1. ...
+2. ...
+3. ...
+
+---
+
+## 📸 Screenshots / Recordings
+
+<!--
+If your changes affect the UI, please provide before and after screenshots or a screen recording.
+This helps reviewers quickly understand the visual changes.
+-->
+
+**Before:**
+
+[Drag and drop image here]
+
+**After:**
+
+[Drag and drop image here]
+
+---
+
+## ✅ PR Checklist
+
+<!--
+Please go through this checklist before submitting your PR.
+-->
+
+- [ ] My code follows the project's style guidelines.
+- [ ] I have performed a self-review of my own code.
+- [ ] I have commented my code, particularly in hard-to-understand areas.
+- [ ] I have made corresponding changes to the documentation.
+- [ ] My changes generate no new warnings.
+- [ ] I have added tests that prove my fix is effective or that my feature works.
+- [ ] New and existing unit tests pass locally with my changes.
+- [ ] Any dependent changes have been merged and published in downstream modules.
+
+---
+
+## 🤯 GIF of the Day (Optional)
+
+<!--
+Share a GIF that represents your feelings about this PR. Because why not?
+-->
+
+[Add a GIF here]
