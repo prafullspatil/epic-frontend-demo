@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { forkJoin, map, of } from 'rxjs';
 import { PatientService } from '../../../core/services/patient.service';
-import { FHIRCondition, FHIRObservation, FHIRPatient } from '../../../core/models/fhir-patient.model';
+import { FHIRAllergyIntolerance, FHIRCondition, FHIRObservation, FHIRPatient } from '../../../core/models/fhir-patient.model';
 import { SidebarComponent } from '../../../shared/sidebar/sidebar.component';
 import { Dialog, DialogModule } from '@angular/cdk/dialog';
 import { SummaryModalComponent } from '../../../shared/summary-modal/summary-modal.component';
@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   patient: FHIRPatient | null = null;
   observations: FHIRObservation[] = [];
   conditions: FHIRCondition[] = [];
+  allergies: FHIRAllergyIntolerance[] = [];
   isLoading = true;
   patientInfo: { [key: string]: string } = {};
   readonly dialog = inject(Dialog);
@@ -35,6 +36,7 @@ export class HomeComponent implements OnInit {
           this.patient = data?.patientResource;
           this.observations = data?.observationResources;
           this.conditions = data?.conditionResources;
+          this.allergies = data?.allergyIntoleranceResources;
           if (this.patient) {
             this.patientInfo = this.createPatientInfo(this.patient);
           }
@@ -53,12 +55,14 @@ export class HomeComponent implements OnInit {
       patient: this.patientService.getPatientData(patientId),
       observations: this.patientService.getPatientObservations(patientId, 'lab'),
       conditions: this.patientService.getPatientConditions(patientId),
+      allergies: this.patientService.getPatientAllergies(patientId),
     }).pipe(
-      map(({ patient, observations, conditions }) => {
+      map(({ patient, observations, conditions, allergies }) => {
         return {
           patientResource: patient,
           observationResources: observations.entry?.map(e => e?.resource) ?? [],
           conditionResources: conditions.entry?.map(e => e?.resource) ?? [],
+          allergyIntoleranceResources: allergies.entry?.map(e => e?.resource) ?? [],
         };
       })
     );
@@ -71,7 +75,8 @@ export class HomeComponent implements OnInit {
         data: {
           patient: this.patient,
           observations: this.observations,
-          conditions: this.conditions
+          conditions: this.conditions,
+          allergies: this.allergies
         }
       });
     }

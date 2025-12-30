@@ -1,7 +1,7 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FHIRPatient, FHIRObservation, FHIRCondition } from '../../core/models/fhir-patient.model';
+import { FHIRPatient, FHIRObservation, FHIRCondition, FHIRAllergyIntolerance } from '../../core/models/fhir-patient.model';
 import { PatientService } from '../../core/services/patient.service';
 
 @Component({
@@ -14,14 +14,14 @@ import { PatientService } from '../../core/services/patient.service';
 export class SummaryModalComponent implements OnInit {
   readonly dialogRef = inject(DialogRef<string>);
   readonly patientService = inject(PatientService);
-  data: { patient: FHIRPatient, observations: FHIRObservation[], conditions: FHIRCondition[] } = inject(DIALOG_DATA);
+  data: { patient: FHIRPatient, observations: FHIRObservation[], conditions: FHIRCondition[], allergies: FHIRAllergyIntolerance[] } = inject(DIALOG_DATA);
   
   isLoading = false;
   parsedSummary: { type: 'title' | 'item' | 'subitem' | 'paragraph', content: string }[] = [];
 
   ngOnInit(): void {
     this.isLoading = true;
-    this.patientService.getPatientSummary(this.data.patient, this.data.observations, this.data.conditions)
+    this.patientService.getPatientSummary(this.data.patient, this.data.observations, this.data.conditions, this.data.allergies)
       .subscribe(summary => {
         this.parsedSummary = this.parseSummary(summary.answer);
         this.isLoading = false;

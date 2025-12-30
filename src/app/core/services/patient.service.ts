@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
-import { ASK_PATIENT_SUMMARY, PATIENT_BY_MRN, PATIENT_CONDITION, PATIENT_DETAILS, PATIENT_OBSERVATION } from '../constants/api-endpoints';
-import { FHIRBundle, FHIRPatient, FHIRObservation, FHIRCondition } from '../models/fhir-patient.model';
+import { ASK_PATIENT_SUMMARY, PATIENT_ALLERGY_INTOLERANCE, PATIENT_BY_MRN, PATIENT_CONDITION, PATIENT_DETAILS, PATIENT_OBSERVATION } from '../constants/api-endpoints';
+import { FHIRAllergyIntolerance, FHIRBundle, FHIRPatient, FHIRObservation, FHIRCondition } from '../models/fhir-patient.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -26,15 +26,20 @@ export class PatientService {
     return this.http.get<FHIRBundle<FHIRCondition>>(`${PATIENT_CONDITION}?patient=${patientId}`);
   }
 
+  getPatientAllergies(patientId: string): Observable<FHIRBundle<FHIRAllergyIntolerance>> {
+    return this.http.get<FHIRBundle<FHIRAllergyIntolerance>>(`${PATIENT_ALLERGY_INTOLERANCE}?patient=${patientId}`);
+  }
+
   getPatientByMrn(mrn: string): Observable<any> {
       return this.http.get<any>(`${PATIENT_BY_MRN}?identifier=${mrn}`);
     }
 
-  getPatientSummary(patient: FHIRPatient, observations: FHIRObservation[], conditions: FHIRCondition[]): Observable<any> {
+  getPatientSummary(patient: FHIRPatient, observations: FHIRObservation[], conditions: FHIRCondition[], allergies: FHIRAllergyIntolerance[]): Observable<any> {
     const payload = {
       patient,
       observations,
-      conditions
+      conditions,
+      allergies
     };
     return this.http.post<any>(ASK_PATIENT_SUMMARY, payload);
   }

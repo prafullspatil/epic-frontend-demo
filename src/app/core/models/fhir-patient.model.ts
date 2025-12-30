@@ -85,3 +85,53 @@ export interface FHIRBundle<T> {
     resource: T;
   }[];
 }
+
+export interface FHIRAllergyIntolerance {
+  resourceType: 'AllergyIntolerance';
+  id: string;
+  clinicalStatus: {
+    coding: {
+      system: string;
+      version: string;
+      code: string;
+      display: string;
+    }[];
+    text: string;
+  };
+  verificationStatus: {
+    coding: {
+      system: string;
+      version: string;
+      code: string;
+      display: string;
+    }[];
+    text: string;
+  };
+  type: string;
+  category: string[];
+  criticality: string;
+  code: {
+    coding: {
+      system: string;
+      code: string;
+      display: string;
+    }[];
+    text: string;
+  };
+  patient: {
+    reference: string;
+    display: string;
+  };
+  onsetDateTime: string;
+  recordedDate: string;
+  reaction: {
+    manifestation: {
+      coding: {
+        system: string;
+        code: string;
+      }[];
+      text: string;
+    }[];
+    description: string;
+  }[];
+}
